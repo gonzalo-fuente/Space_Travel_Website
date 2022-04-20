@@ -3,13 +3,13 @@ import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [location, setLocation] = useState("/");
 
   return (
-    <Router>
+    <HashRouter>
       <div className={location === "/" ? "home" : location.slice(1)}>
         <Navbar location={location} />
         <Routes>
@@ -21,7 +21,7 @@ function App() {
           <Route path="crew" element={<Crew setLocation={setLocation} />} />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
